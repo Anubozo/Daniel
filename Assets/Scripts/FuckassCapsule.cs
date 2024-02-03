@@ -19,6 +19,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         direction = target.transform.position - transform.position;
         float scale = Mathf.Sqrt(direction.x*direction.x + direction.y*direction.y+direction.z*direction.z);
         direction.x*=1f/scale;
