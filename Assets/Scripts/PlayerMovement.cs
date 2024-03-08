@@ -40,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (isGrounded && Input.GetKey(KeyCode.Space))
         {   
-            velocity.y = Mathf.Sqrt(5f * -2f * gravity); // Adjust jumpHeight for desired jump height
+            velocity.y = Mathf.Sqrt(-3f * gravity); // Adjust jumpHeight for desired jump height
         }
 
         velocity.y += gravity * Time.deltaTime;
