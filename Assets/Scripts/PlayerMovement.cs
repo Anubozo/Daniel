@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        
+        Physics.IgnoreLayerCollision(0, 1);
     }
 
     // Update is called once per frame

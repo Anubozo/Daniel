@@ -9,10 +9,12 @@ public class Enemy : MonoBehaviour
     private Vector3 direction;
     public Rigidbody body;
     public float speed;
+    public float health;
     // Start is called before the first frame update
     void Start()
     {
         speed = 1;
+        health = 100;
         body = GetComponent<Rigidbody>();
     }
 
@@ -21,12 +23,25 @@ public class Enemy : MonoBehaviour
     {
         
         direction = target.transform.position - transform.position;
+
+
         float scale = Mathf.Sqrt(direction.x*direction.x + direction.y*direction.y+direction.z*direction.z);
         direction.x*=1f/scale;
         direction.y*=1f/scale;
         direction.z*=1f/scale;
-        body.MovePosition(transform.position + direction*Time.deltaTime*speed);
+
+        if(isAlive()){
+
+            body.MovePosition(transform.position + direction*Time.deltaTime*speed*100);
+        }
         
+    }
+    bool isAlive(){
+        if(health >0){
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }
