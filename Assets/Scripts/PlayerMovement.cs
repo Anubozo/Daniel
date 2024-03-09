@@ -6,20 +6,24 @@ public class PlayerMovement : MonoBehaviour
 {
     // Start is called before the first frame update
     public CharacterController controller;
-    public float speed = 12f;
-    public float gravity = -1f;
+    public float speed;
+    public float gravity;
     public Transform GroundCheck;
     public Transform CeilingCheck;
     Vector3 velocity;
     Vector3 acceleration;
-    public float groundDistance = 0.4f;
+    public float groundDistance;
     public LayerMask groundMask;
     bool isGrounded;
-    public float jumpHeight = 3;
+    public float jumpHeight;
 
     void Start()
     {
         Physics.IgnoreLayerCollision(0, 1);
+        jumpHeight = 3;
+        groundDistance = 0.4f;
+        gravity = -10f;
+        speed = 12f;
     }
 
     // Update is called once per frame
@@ -38,10 +42,9 @@ public class PlayerMovement : MonoBehaviour
         float z = Input.GetAxis("Vertical");
         Vector3 move = transform.right * x + transform.forward * z;
         controller.Move(move * speed * Time.deltaTime);
-
         if (isGrounded && Input.GetKey(KeyCode.Space))
         {   
-            velocity.y = Mathf.Sqrt(-1f*jumpHeight * gravity); // Adjust jumpHeight for desired jump height
+            velocity.y = 1f*(jumpHeight); // Adjust jumpHeight for desired jump height
         }
 
         velocity.y += gravity * Time.deltaTime;
