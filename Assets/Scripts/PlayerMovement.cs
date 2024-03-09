@@ -16,18 +16,19 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundMask;
     bool isGrounded;
     public float jumpHeight;
+    private float initialJumpSpeed;
 
     void Start()
     {
         Physics.IgnoreLayerCollision(0, 1);
-        jumpHeight = 5;
         groundDistance = 0.4f;
-        gravity = -10f;
         speed = 12f;
+        
     }
 
     // Update is called once per frame
     void Update(){
+        initialJumpSpeed = Mathf.Sqrt(-2*gravity*jumpHeight);
         isGrounded = Physics.CheckSphere(GroundCheck.position, groundDistance, groundMask);
         if(Physics.CheckSphere(CeilingCheck.position, groundDistance, groundMask)){
             velocity.y=-1;
@@ -41,10 +42,13 @@ public class PlayerMovement : MonoBehaviour
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
         Vector3 move = transform.right * x + transform.forward * z;
+        
+        
         controller.Move(move * speed * Time.deltaTime);
+        
         if (isGrounded && Input.GetKey(KeyCode.Space))
         {   
-            velocity.y = 1f*(jumpHeight); // Adjust jumpHeight for desired jump height
+            velocity.y = initialJumpSpeed; // Adjust jumpHeight for desired jump height
         }
 
         velocity.y += gravity * Time.deltaTime;

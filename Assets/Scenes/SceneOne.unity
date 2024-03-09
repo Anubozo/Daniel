@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.36027375, g: 0.24801445, b: 0.18169296, a: 1}
+  m_IndirectSpecularColor: {r: 0.36022085, g: 0.24831912, b: 0.1816062, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -155,14 +155,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 17961029}
   speed: 12
-  gravity: -20
+  gravity: -10
   GroundCheck: {fileID: 424809161}
   CeilingCheck: {fileID: 2071591279}
   groundDistance: 0.4
   groundMask:
     serializedVersion: 2
     m_Bits: 8
-  jumpHeight: 15
+  jumpHeight: 5
 --- !u!143 &17961029
 CharacterController:
   m_ObjectHideFlags: 0
