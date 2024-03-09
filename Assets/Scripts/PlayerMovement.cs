@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
     bool isGrounded;
+    public float jumpHeight = 3;
 
     void Start()
     {
@@ -40,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (isGrounded && Input.GetKey(KeyCode.Space))
         {   
-            velocity.y = Mathf.Sqrt(-3f * gravity); // Adjust jumpHeight for desired jump height
+            velocity.y = Mathf.Sqrt(-1f*jumpHeight * gravity); // Adjust jumpHeight for desired jump height
         }
 
         velocity.y += gravity * Time.deltaTime;
