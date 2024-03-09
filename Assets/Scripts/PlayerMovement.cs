@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         Physics.IgnoreLayerCollision(0, 1);
-        jumpHeight = 3;
+        jumpHeight = 5;
         groundDistance = 0.4f;
         gravity = -10f;
         speed = 12f;
