@@ -27,11 +27,12 @@ public class PlayerInteraction : MonoBehaviour
 
                     // Interact with door
                     if(obj.name=="Door"){
-                        Debug.Log(obj.transform.rotation);
                         if(obj.transform.localRotation==Quaternion.Euler(0,90,0)){
                             obj.transform.localRotation=Quaternion.Euler(0,0,0);
+                            obj.transform.localPosition= new Vector3(0.0055f, 0.4676f, 7.1f);
                         } else {
                             obj.transform.localRotation=Quaternion.Euler(0,90,0);
+                            obj.transform.localPosition= new Vector3(-1.315f, 0.4676f, 5.767f);
                         }
                     }
 
