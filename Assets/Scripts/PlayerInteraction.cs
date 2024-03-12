@@ -34,7 +34,7 @@ public class PlayerInteraction : MonoBehaviour
                             obj.transform.localPosition= new Vector3(0, 0, 0);
                         } else {
                             obj.transform.localRotation= Quaternion.Euler(0,90,0);
-                            obj.transform.localPosition= new Vector3(-1.33f, 0, -1.49f);
+                            obj.transform.localPosition = new Vector3(-0.205f, -2.7696e-08f, -0.209f);
                         }
                     }
 
@@ -45,13 +45,13 @@ public class PlayerInteraction : MonoBehaviour
                             texture.transform.localPosition = new Vector3(0, 0, 0);
                         } else {
                             texture.transform.localRotation = Quaternion.Euler(0,90,0); 
-                            texture.transform.localPosition = new Vector3(-1.33f, 0, -1.49f);
+                            texture.transform.localPosition = new Vector3(-0.205f, -2.7696e-08f, -0.209f);
                         }
 
                     }
 
 
-                    // Interact with other thing:Vector3(0.00549999997,0.467599869,7.0999999)
+                    // Interact with other thing:Vector3(0.00549999997,0.467599869,7.0999999) Vector3(2.88096166,4.10138988,0.199424356)
                 }
             }
         }
