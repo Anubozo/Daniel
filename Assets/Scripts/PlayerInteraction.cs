@@ -22,13 +22,14 @@ public class PlayerInteraction : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(transform.position, forward, out hit)){
                 GameObject obj = hit.collider.gameObject;
+                Debug.Log(obj.name);
                 int CollisionLayer = LayerMask.NameToLayer("InteractionLayer");
                 if(obj.layer == CollisionLayer){
 
                     // Interact with door
                     if(obj.name=="DoorTexture"){
                         GameObject hitbox = obj.transform.parent.transform.GetChild(1).gameObject;     
-                        if(obj.transform.localRotation==Quaternion.Euler(0,90,0)){ // If door is rotated
+                        if(obj.transform.localRotation==Quaternion.Euler(0,90,0)){ 
                             obj.transform.localRotation= Quaternion.Euler(0,0,0);
                             obj.transform.localPosition= new Vector3(0, 0, 0);
                         } else {
@@ -39,7 +40,7 @@ public class PlayerInteraction : MonoBehaviour
 
                     if(obj.name == "DoorHitbox"){
                         GameObject texture = obj.transform.parent.transform.GetChild(0).gameObject;
-                        if(texture.transform.localRotation == Quaternion.Euler(0,90,0)){ // If door is rotated, unrotate it
+                        if(texture.transform.localRotation == Quaternion.Euler(0,90,0)){ 
                             texture.transform.localRotation =Quaternion.Euler(0,0,0);
                             texture.transform.localPosition = new Vector3(0, 0, 0);
                         } else {
