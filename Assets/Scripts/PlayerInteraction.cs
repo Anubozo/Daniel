@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -24,19 +25,32 @@ public class PlayerInteraction : MonoBehaviour
                 int CollisionLayer = LayerMask.NameToLayer("InteractionLayer");
                 if(obj.layer == CollisionLayer){
 
-
                     // Interact with door
-                    if(obj.name=="Door"){
-                        if(obj.transform.localRotation==Quaternion.Euler(0,90,0)){
-                            obj.transform.localRotation=Quaternion.Euler(0,0,0);
-                            obj.transform.localPosition= new Vector3(0.0055f, 0.4676f, 7.1f);
+                    if(obj.name=="DoorTexture"){
+                        GameObject hitbox = obj.transform.parent.transform.GetChild(1).gameObject;     
+                        if(obj.transform.localRotation==Quaternion.Euler(0,90,0)){ // If door is rotated
+                            obj.transform.localRotation= Quaternion.Euler(0,0,0);
+                            obj.transform.localPosition= new Vector3(0, 0, 0);
                         } else {
-                            obj.transform.localRotation=Quaternion.Euler(0,90,0);
-                            obj.transform.localPosition= new Vector3(-1.315f, 0.4676f, 5.767f);
+                            obj.transform.localRotation= Quaternion.Euler(0,90,0);
+                            obj.transform.localPosition= new Vector3(-1.33f, 0, -1.49f);
                         }
                     }
 
-                    // Interact with other thing:
+                    if(obj.name == "DoorHitbox"){
+                        GameObject texture = obj.transform.parent.transform.GetChild(0).gameObject;
+                        if(texture.transform.localRotation == Quaternion.Euler(0,90,0)){ // If door is rotated, unrotate it
+                            texture.transform.localRotation =Quaternion.Euler(0,0,0);
+                            texture.transform.localPosition = new Vector3(0, 0, 0);
+                        } else {
+                            texture.transform.localRotation = Quaternion.Euler(0,90,0); 
+                            texture.transform.localPosition = new Vector3(-1.33f, 0, -1.49f);
+                        }
+
+                    }
+
+
+                    // Interact with other thing:Vector3(0.00549999997,0.467599869,7.0999999)
                 }
             }
         }
